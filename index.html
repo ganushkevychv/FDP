@@ -15,7 +15,8 @@
     <p>SECTORS</p>
 </div>
 <div class="select">
-    <select id="fdpSelect" onchange="fdpChangeFunc();">
+    <select id="fdpSelect" onchange="ChangeFunc();">
+        <option>TIME</option>
         <option value="fdpOne"> 06:00 - 13:29
             </option>
             <option value="fdpTwo"> 13:30 - 13:59
@@ -45,8 +46,9 @@
     </select>
 
 <div class="containerSector">
-<select id="sectorSelect" onchange="sectorChangeFunc();">
-    <option value="sectorOnetwo">1 - 2</option>
+<select id="sectorSelect" onchange="ChangeFunc();">
+    <option>SECTORS</option>
+    <option value="sectorOneTwo">1 - 2</option>
     <option value="sectorThree">3</option>
     <option value="sectorFour">4</option>
     <option value="sectorFive">5</option>

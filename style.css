@@ -5,6 +5,8 @@ body{
     display: flex;
     flex-direction:row;
     justify-content: space-evenly;
+    text-align-last: center;
+    
 }
 #result {
     display: flex;
@@ -14,4 +16,5 @@ body{
 }
 #result{
     color: red;
+    font-size: 25pt;
 }
