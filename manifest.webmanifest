@@ -2,7 +2,6 @@
 	"dir" : "ltr",
 	"lang" : "English",
 	"name" : "FDP",
-	"scope" : "/fdp/",
 	"display" : "standalone",
 	"start_url" : "https://cocky-jackson-cf646d.netlify.com",
 	"short_name" : "FDP",
