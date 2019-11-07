@@ -4,7 +4,7 @@
 	"name" : "FDP",
 	"scope" : "/fdp/",
 	"display" : "standalone",
-	"start_url" : "https://epic-pasteur-6f394c.netlify.com/fdp/",
+	"start_url" : "https://cocky-jackson-cf646d.netlify.com",
 	"short_name" : "FDP",
 	"theme_color" : "transparent",
 	"description" : "Flight Time Limitations",
