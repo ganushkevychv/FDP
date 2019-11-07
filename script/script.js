@@ -66,7 +66,7 @@
  "10:45"
  ]; */
 let obj = {}
-fetch("/fdp/script/fdp.json")
+fetch("/script/fdp.json")
   .then(response => response.json())
   .then(json => obj = json)
 
