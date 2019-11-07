@@ -212,3 +212,5 @@ fetch("/script/fdp.json")
   getResultDiv.innerHTML = "Result: " + resultOne[64]
  }*/
 }
+
+swal("to use this app offline pls go to browser settings and add to home screen");
