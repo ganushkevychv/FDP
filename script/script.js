@@ -1,4 +1,4 @@
-const resultOne = 
+/*const resultOne = 
  ["13:00",
  "12:30",
  "12:00",
@@ -64,16 +64,24 @@ const resultOne =
  "11:45",
  "11:15",
  "10:45"
- ]; 
+ ]; */
+let obj = {}
+fetch("/fdp/script/fdp.json")
+  .then(response => response.json())
+  .then(json => obj = json)
+
+
  function ChangeFunc() {
   let getResultDiv = document.getElementById("result");
   let fdpSelect = document.getElementById("fdpSelect");
   let fdpValue = fdpSelect.options[fdpSelect.selectedIndex].value;
   let sectorSelect = document.getElementById("sectorSelect");
   let sectorValue = sectorSelect.options[sectorSelect.selectedIndex].value;
+  if (fdpValue in obj && sectorValue in obj[fdpValue]) // checks if json is present and contains necessary values
+    getResultDiv.innerHTML = obj[fdpValue][sectorValue]
   
-  if(sectorValue === "sectorOneTwo" && fdpValue === "fdpOne") {
-    getResultDiv.innerHTML = "Result: " + resultOne[0]
+ /* if(sectorValue === "sectorOneTwo" && fdpValue === "fdpOne") {
+     getResultDiv.innerHTML = "Result: " + resultOne[0]
   }else if (sectorValue === "sectorThree" && fdpValue === "fdpOne") {
     getResultDiv.innerHTML = "Result: " + resultOne[1]
   }else if (sectorValue === "sectorFour" && fdpValue === "fdpOne") {
@@ -193,14 +201,14 @@ const resultOne =
  }else if (sectorValue === "sectorSix" && fdpValue === "fdpTwelve") {
   getResultDiv.innerHTML = "Result: " + resultOne[59]
  }else if (sectorValue === "sectorOneTwo" && fdpValue === "fdpThirteen") {
-  getResultDiv.innerHTML = "Result: " + resultOne[61]
+  getResultDiv.innerHTML = "Result: " + resultOne[60]
  }else if (sectorValue === "sectorThree" && fdpValue === "fdpThirteen") {
-  getResultDiv.innerHTML = "Result: " + resultOne[62]
+  getResultDiv.innerHTML = "Result: " + resultOne[61]
  }else if (sectorValue === "sectorFour" && fdpValue === "fdpThirteen") {
-  getResultDiv.innerHTML = "Result: " + resultOne[63]
+  getResultDiv.innerHTML = "Result: " + resultOne[62]
  }else if (sectorValue === "sectorFive" && fdpValue === "fdpThirteen") {
-  getResultDiv.innerHTML = "Result: " + resultOne[64]
+  getResultDiv.innerHTML = "Result: " + resultOne[63]
  }else if (sectorValue === "sectorSix" && fdpValue === "fdpThirteen") {
-  getResultDiv.innerHTML = "Result: " + resultOne[65]
- }
+  getResultDiv.innerHTML = "Result: " + resultOne[64]
+ }*/
 }
