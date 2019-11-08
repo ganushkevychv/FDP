@@ -11,7 +11,12 @@
 	"background_color" : "transparent",
 	"related_applications" : "",
 	"prefer_related_applications" : "false",
-	"icons" : [],
+	"icons" : [
+		{
+			"src": "/img/flight.svg",
+			"sizes": "616x616"
+		}
+	],
 	"screenshots" : [],
 	"generated" : "true"
 }
