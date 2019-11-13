@@ -214,6 +214,39 @@ fetch("/script/fdp.json")
   getResultDiv.innerHTML = "Result: " + resultOne[64]
  }*/
 }
+let timeSelection = document.getElementById("time");
+timeSelection.length = 0;
+
+let defaultOption = document.createElement("option");
+defaultOption.text = 'Check-in time';
+timeSelection.add(defaultOption);
+timeSelection.selectedIndex = 0;
+
+
+fetch("/script/time.json")  
+  .then(  
+    function(response) {  
+      if (response.status !== 200) {  
+        console.warn("Houston, we have a problem: " + 
+          response.status);  
+        return;  
+      }
+
+      
+      response.json().then(function(data) {  
+        let option;
+    
+    	for (let i = 0; i < data.length; i++) {
+          option = document.createElement('option');
+      	  option.text = data[i].time;
+      	  //option.value = data[i].abbreviation;
+      	  timeSelection.add(option);
+    	}    
+      });  
+    }  
+  )  
+  
+
 
 swal("to use this app offline pls go to browser settings and add to home screen");// alert msg
 
