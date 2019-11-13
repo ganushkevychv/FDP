@@ -1,3 +1,4 @@
+// first example how to resolve fdp task
 /*const resultOne = 
  ["13:00",
  "12:30",
@@ -65,6 +66,7 @@
  "11:15",
  "10:45"
  ]; */
+ //second example how to resolve fdp task
 let obj = {}
 fetch("/script/fdp.json")
   .then(response => response.json())
@@ -78,8 +80,8 @@ fetch("/script/fdp.json")
   let sectorSelect = document.getElementById("sectorSelect");
   let sectorValue = sectorSelect.options[sectorSelect.selectedIndex].value;
   if (fdpValue in obj && sectorValue in obj[fdpValue]) // checks if json is present and contains necessary values
-    getResultDiv.innerHTML = obj[fdpValue][sectorValue]
-  
+    getResultDiv.innerHTML = "Max FDP: " + obj[fdpValue][sectorValue]
+  // first example how to resolve fdp task
  /* if(sectorValue === "sectorOneTwo" && fdpValue === "fdpOne") {
      getResultDiv.innerHTML = "Result: " + resultOne[0]
   }else if (sectorValue === "sectorThree" && fdpValue === "fdpOne") {
@@ -213,4 +215,9 @@ fetch("/script/fdp.json")
  }*/
 }
 
-swal("to use this app offline pls go to browser settings and add to home screen");
+swal("to use this app offline pls go to browser settings and add to home screen");// alert msg
+if (window.matchMedia('(display-mode: standalone )').matches) {
+  console.log("This is running as standalone.");
+} else if (console.log("fjdjg"));
+
+  
