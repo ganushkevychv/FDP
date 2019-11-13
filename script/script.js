@@ -225,26 +225,20 @@ timeSelection.selectedIndex = 0;
 
 fetch("/script/time.json")  
   .then(  
-    function(response) {  
-      if (response.status !== 200) {  
-        console.warn("Houston, we have a problem: " + 
-          response.status);  
-        return;  
-      }
-
-      
+    function(response) { 
       response.json().then(function(data) {  
         let option;
     
     	for (let i = 0; i < data.length; i++) {
           option = document.createElement('option');
       	  option.text = data[i].time;
-      	  //option.value = data[i].abbreviation;
       	  timeSelection.add(option);
     	}    
       });  
     }  
   )  
+      
+     
   
 
 
