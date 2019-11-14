@@ -75,7 +75,6 @@ fetch("/script/fdp.json")
 
 function ChangeFunc() {
   let format = "H:mm";
-  let m = moment();
 
   let getResultDiv = document.getElementById("result");
   let fdpSelect = document.getElementById("fdpSelect");
@@ -91,11 +90,14 @@ function ChangeFunc() {
     getResultDiv.innerHTML = "Max FDP: " + obj[fdpValue][sectorValue];
   //console.log(String(getResultDiv))
   getResultTimeDiv.innerHTML =
-    "                        Till: " +
+    "Till: " +
     moment(obj[fdpValue][sectorValue], format)
       .add(moment(timeValue, format).hours(), "hours")
-      .add(moment(timeValue, format).minutes(), "minutes")
-      .format(format) + "<br>" + "Extension not included";
+      .add(moment(timeValue, format).minutes(), "minutes").add(20,"m")
+      .format(format) + "<br>" + "Check-out time included" + "<br>" + "Extension not included";
+    
+      
+     
 
  
   // first example how to resolve fdp task
