@@ -90,11 +90,11 @@ function ChangeFunc() {
     getResultDiv.innerHTML = "Max FDP: " + obj[fdpValue][sectorValue];
   //console.log(String(getResultDiv))
   getResultTimeDiv.innerHTML =
-    "Till: " +
+    "Check-out at: " +
     moment(obj[fdpValue][sectorValue], format)
       .add(moment(timeValue, format).hours(), "hours")
       .add(moment(timeValue, format).minutes(), "minutes").add(20,"m")
-      .format(format) + "<br>" + "Check-out time included" + "<br>" + "Extension not included";
+      .format(format) + "<br>" + "Extension not included";
     
       
      
