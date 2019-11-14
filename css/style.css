@@ -14,9 +14,10 @@ body{
     justify-content: center;
     padding: 10px;
 }
-#result, #resultTime{
+#result, #resultTime {
     color: red;
     font-size: 25pt;
+    text-align: center;
 }
 #install-btn {
     display: none;
@@ -26,7 +27,4 @@ body{
     flex-direction: row;
     justify-content: center;
     text-align-last: center; 
-}
-p {
-    font-size: 2em;
 }

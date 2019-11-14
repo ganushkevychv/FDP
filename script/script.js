@@ -91,18 +91,13 @@ function ChangeFunc() {
     getResultDiv.innerHTML = "Max FDP: " + obj[fdpValue][sectorValue];
   //console.log(String(getResultDiv))
   getResultTimeDiv.innerHTML =
-    "Till: " +
+    "                        Till: " +
     moment(obj[fdpValue][sectorValue], format)
       .add(moment(timeValue, format).hours(), "hours")
       .add(moment(timeValue, format).minutes(), "minutes")
-      .format(format);
+      .format(format) + "<br>" + "Extension not included";
 
-  //console.log(moment({ getResultTimeDiv }));
-  // let x =
-  // String(getResultDiv) + " " +
-  // String(getResultTimeDiv)
-
-  //console.log(moment().format(format))
+ 
   // first example how to resolve fdp task
   /* if(sectorValue === "sectorOneTwo" && fdpValue === "fdpOne") {
      getResultDiv.innerHTML = "Result: " + resultOne[0]
