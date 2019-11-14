@@ -92,9 +92,9 @@ fetch("/script/fdp.json")
   let sectorValue = sectorSelect.options[sectorSelect.selectedIndex].value;
   if (fdpValue in obj && sectorValue in obj[fdpValue]) // checks if json is present and contains necessary values
     getResultDiv.innerHTML = "Max FDP: " + obj[fdpValue][sectorValue];
-    console.log(String(getResultDiv))
-    getResultTimeDiv.innerHTML = "Time: " + [timeValue] + " " + obj[fdpValue][sectorValue];
-    console.log(typeof getResultTimeDiv)
+    //console.log(String(getResultDiv))
+    getResultTimeDiv.innerHTML = "Time: " + [timeValue] + " " + obj[fdpValue][sectorValue]
+    console.log(moment({getResultTimeDiv}))
     // let x =  
     // String(getResultDiv) + " " +
     // String(getResultTimeDiv)
