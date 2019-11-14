@@ -66,20 +66,17 @@
  "11:15",
  "10:45"
  ]; */
- //second example how to resolve fdp task
+//second example how to resolve fdp task
 
-
- let obj = {}
+let obj = {};
 fetch("/script/fdp.json")
   .then(response => response.json())
-  .then(json => obj = json)
+  .then(json => (obj = json));
 
-
- 
- function ChangeFunc() {
-  let format = "h:mm";
+function ChangeFunc() {
+  let format = "H:mm";
   let m = moment();
-  
+
   let getResultDiv = document.getElementById("result");
   let fdpSelect = document.getElementById("fdpSelect");
   let fdpValue = fdpSelect.options[fdpSelect.selectedIndex].value;
@@ -87,22 +84,27 @@ fetch("/script/fdp.json")
   let timeSelect = document.getElementById("time");
   let timeValue = timeSelect.options[timeSelect.selectedIndex].value;
   let getResultTimeDiv = document.getElementById("resultTime");
-  
-  
+
   let sectorValue = sectorSelect.options[sectorSelect.selectedIndex].value;
-  if (fdpValue in obj && sectorValue in obj[fdpValue]) // checks if json is present and contains necessary values
+  if (fdpValue in obj && sectorValue in obj[fdpValue])
+    // checks if json is present and contains necessary values
     getResultDiv.innerHTML = "Max FDP: " + obj[fdpValue][sectorValue];
-    //console.log(String(getResultDiv))
-    getResultTimeDiv.innerHTML = "Time: " + [timeValue] + " " + obj[fdpValue][sectorValue]
-    console.log(moment({getResultTimeDiv}))
-    // let x =  
-    // String(getResultDiv) + " " +
-    // String(getResultTimeDiv)
-   
-    
-    //console.log(moment().format(format))
+  //console.log(String(getResultDiv))
+  getResultTimeDiv.innerHTML =
+    "Time: " +
+    moment(obj[fdpValue][sectorValue], format)
+      .add(moment(timeValue, format).hours(), "hours")
+      .add(moment(timeValue, format).minutes(), "minutes")
+      .format(format);
+
+  //console.log(moment({ getResultTimeDiv }));
+  // let x =
+  // String(getResultDiv) + " " +
+  // String(getResultTimeDiv)
+
+  //console.log(moment().format(format))
   // first example how to resolve fdp task
- /* if(sectorValue === "sectorOneTwo" && fdpValue === "fdpOne") {
+  /* if(sectorValue === "sectorOneTwo" && fdpValue === "fdpOne") {
      getResultDiv.innerHTML = "Result: " + resultOne[0]
   }else if (sectorValue === "sectorThree" && fdpValue === "fdpOne") {
     getResultDiv.innerHTML = "Result: " + resultOne[1]
@@ -238,26 +240,21 @@ let timeSelection = document.getElementById("time");
 timeSelection.length = 0;
 
 let defaultOption = document.createElement("option");
-defaultOption.text = 'Check-in time';
+defaultOption.text = "Check-in time";
 timeSelection.add(defaultOption);
 timeSelection.selectedIndex = 0;
 
+fetch("/script/time.json").then(function(response) {
+  response.json().then(function(data) {
+    let option;
 
-fetch("/script/time.json")  
-  .then(  
-    function(response) { 
-      response.json().then(function(data) {  
-        let option;
-    
-    	for (let i = 0; i < data.length; i++) {
-          option = document.createElement('option');
-      	  option.text = data[i].time;
-      	  timeSelection.add(option);
-    	}    
-      });  
-    }  
-  )  
-swal("to use this app offline pls go to browser settings and add to home screen");// alert msg
-
-
-  
+    for (let i = 0; i < data.length; i++) {
+      option = document.createElement("option");
+      option.text = data[i].time;
+      timeSelection.add(option);
+    }
+  });
+});
+swal(
+  "to use this app offline pls go to browser settings and add to home screen"
+); // alert msg
