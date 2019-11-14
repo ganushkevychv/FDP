@@ -8,16 +8,22 @@ body{
     text-align-last: center;
     
 }
-#result {
+#result, #resultTime{
     display: flex;
     flex-direction:row;
     justify-content: center;
     padding: 10px;
 }
-#result{
+#result, #resultTime{
     color: red;
     font-size: 25pt;
 }
 #install-btn {
     display: none;
+}
+.timeSelector {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align-last: center; 
 }

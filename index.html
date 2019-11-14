@@ -60,8 +60,9 @@
 </div>
 <div id="result"> </div>
 <div class="timeSelector">
-    <select id="time"></select>
+    <select id="time" onchange="ChangeFunc();"></select>
 </div>
+<div id="resultTime"></div>
 </div>
 </div>
 <button id="install-btn" onclick="install()">
@@ -70,6 +71,9 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="/script/script.js"></script>
     <script src="/script/pwaScript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+
     <script>
  
 if ("serviceWorker" in navigator) {

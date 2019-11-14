@@ -67,20 +67,40 @@
  "10:45"
  ]; */
  //second example how to resolve fdp task
-let obj = {}
+
+
+ let obj = {}
 fetch("/script/fdp.json")
   .then(response => response.json())
   .then(json => obj = json)
 
 
+ 
  function ChangeFunc() {
+  let format = "h:mm";
+  let m = moment();
+  
   let getResultDiv = document.getElementById("result");
   let fdpSelect = document.getElementById("fdpSelect");
   let fdpValue = fdpSelect.options[fdpSelect.selectedIndex].value;
   let sectorSelect = document.getElementById("sectorSelect");
+  let timeSelect = document.getElementById("time");
+  let timeValue = timeSelect.options[timeSelect.selectedIndex].value;
+  let getResultTimeDiv = document.getElementById("resultTime");
+  
+  
   let sectorValue = sectorSelect.options[sectorSelect.selectedIndex].value;
   if (fdpValue in obj && sectorValue in obj[fdpValue]) // checks if json is present and contains necessary values
     getResultDiv.innerHTML = "Max FDP: " + obj[fdpValue][sectorValue];
+    console.log(String(getResultDiv))
+    getResultTimeDiv.innerHTML = "Time: " + [timeValue] + " " + obj[fdpValue][sectorValue];
+    console.log(typeof getResultTimeDiv)
+    // let x =  
+    // String(getResultDiv) + " " +
+    // String(getResultTimeDiv)
+   
+    
+    //console.log(moment().format(format))
   // first example how to resolve fdp task
  /* if(sectorValue === "sectorOneTwo" && fdpValue === "fdpOne") {
      getResultDiv.innerHTML = "Result: " + resultOne[0]
@@ -237,11 +257,6 @@ fetch("/script/time.json")
       });  
     }  
   )  
-      
-     
-  
-
-
 swal("to use this app offline pls go to browser settings and add to home screen");// alert msg
 
 
