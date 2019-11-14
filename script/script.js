@@ -91,7 +91,7 @@ function ChangeFunc() {
     getResultDiv.innerHTML = "Max FDP: " + obj[fdpValue][sectorValue];
   //console.log(String(getResultDiv))
   getResultTimeDiv.innerHTML =
-    "Time: " +
+    "Till: " +
     moment(obj[fdpValue][sectorValue], format)
       .add(moment(timeValue, format).hours(), "hours")
       .add(moment(timeValue, format).minutes(), "minutes")
