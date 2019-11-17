@@ -66,8 +66,8 @@
  "11:15",
  "10:45"
  ]; */
-//second example how to resolve fdp task
 
+//second example how to resolve fdp task
 let obj = {};
 fetch("/script/fdp.json")
   .then(response => response.json())
@@ -88,25 +88,67 @@ function ChangeFunc() {
   let sectorValue = sectorSelect.options[sectorSelect.selectedIndex].value;
   if (fdpValue in obj && sectorValue in obj[fdpValue])
     // checks if json is present and contains necessary values
-    getResultDiv.innerHTML = "Max FDP: " + obj[fdpValue][sectorValue];
-  //console.log(String(getResultDiv))
+    getResultDiv.innerHTML = "Max FDP: " + moment(obj[fdpValue][sectorValue],format).format(format);
+
   getResultTimeDiv.innerHTML =
     "Duty time till: " +
     moment(obj[fdpValue][sectorValue], format)
       .add(moment(timeValue, format).hours(), "hours")
-      .add(moment(timeValue, format).minutes(), "minutes").add(20,"m")
-      .format(format)
-      getResultTimeFdp.innerHTML =
+      .add(moment(timeValue, format).minutes(), "minutes")
+      .add(20, "m")
+      .format(format);
+  getResultTimeFdp.innerHTML =
     "FDP: " +
     moment(obj[fdpValue][sectorValue], format)
       .add(moment(timeValue, format).hours(), "hours")
       .add(moment(timeValue, format).minutes(), "minutes")
-      .format(format) + "<br>" + "Extension not included";
-    
-      
-     
+      .format(format) +
+    "<br>" +
+    "Extension not included";
+    //add 1h to duty time
+    document.getElementById("addBtn").addEventListener("click", incrementBtn);
+    function incrementBtn() {
+      getResultTimeDiv.innerHTML =
+    "Duty time till: " +
+    moment(obj[fdpValue][sectorValue], format)
+      .add(moment(timeValue, format).hours(), "hours").add(1,"H")
+      .add(moment(timeValue, format).minutes(), "minutes")
+      .add(20, "m")
+      .format(format);
+      getResultTimeFdp.innerHTML =
+    "FDP: " +
+    moment(obj[fdpValue][sectorValue], format)
+      .add(moment(timeValue, format).hours(), "hours").add(1,"H")
+      .add(moment(timeValue, format).minutes(), "minutes")
+      .format(format)
+    }
 
- 
+/*function incrementBtn() {
+	let items = document.querySelectorAll("#resultTime, #resultFdp");
+
+	items.forEach(items => {
+		items.innerHTML = items.innerHTML + moment(obj[fdpValue][sectorValue], format)
+			.add(moment(timeValue, format).hours(), "hours").add(1,"H")
+			.add(moment(timeValue, format).minutes(), "minutes").add(20,"m")
+			.format(format);
+	})
+};*/
+    
+    /*function incrementBtn() {
+      let button = document.querySelectorAll("#resultTime, #resultFdp");
+    
+      for (let i = 0; i < items.length; i++)
+      {
+        button[i].onclick = function() { 
+          this.innerHTML = this.innerHTML + moment(obj[fdpValue][sectorValue], format)
+          .add(moment(timeValue, format).hours(), "hours").add(1,"H")
+          .add(moment(timeValue, format).minutes(), "minutes")
+          .format(format);
+        };
+      }
+    };
+    incrementBtn();*/
+
   // first example how to resolve fdp task
   /* if(sectorValue === "sectorOneTwo" && fdpValue === "fdpOne") {
      getResultDiv.innerHTML = "Result: " + resultOne[0]
@@ -240,6 +282,8 @@ function ChangeFunc() {
   getResultDiv.innerHTML = "Result: " + resultOne[64]
  }*/
 }
+
+
 let timeSelection = document.getElementById("time");
 timeSelection.length = 0;
 
@@ -259,6 +303,7 @@ fetch("/script/time.json").then(function(response) {
     }
   });
 });
+
 swal(
   "to use this app offline pls go to browser settings and add to home screen"
 ); // alert msg

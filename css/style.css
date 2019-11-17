@@ -1,15 +1,18 @@
 body{
     background-image: url("/img/sky.jpg");
 }
-.text, .select {
+.text, .select, #result, #resultTime, p, .timeSelector, #conteinerBtn{
     display: flex;
+}
+.text, .select {
+    
     flex-direction:row;
     justify-content: space-evenly;
     text-align-last: center;
     
 }
 #result, #resultTime, p{
-    display: flex;
+    
     flex-direction:row;
     justify-content: center;
     padding: 10px;
@@ -19,12 +22,17 @@ body{
     font-size: 25pt;
     text-align: center;
 }
-#install-btn {
+/*#install-btn {
     display: none;
-}
+}*/
 .timeSelector {
-    display: flex;
+    
     flex-direction: row;
     justify-content: center;
     text-align-last: center; 
+}
+#containerBtn {
+    text-align:center;
+    margin:auto;
+ 
 }

@@ -65,12 +65,16 @@
 <div id="resultTime"></div>
 </div>
 <div id="resultFdp"></div>
-</div>
+
 <!--<p>Extension not included</p>-->
 </div>
+<div id="containerBtn">
 <button id="install-btn" onclick="install()">
     Install
   </button>
+  <button id="addBtn">Extension +1h</button>
+</div>
+</div>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="/script/script.js"></script>
     <script src="/script/pwaScript.js"></script>
@@ -78,7 +82,6 @@
 
 
     <script>
- 
 if ("serviceWorker" in navigator) {
   if (navigator.serviceWorker.controller) {
     console.log("[PWA Builder] active service worker found, no need to register");
