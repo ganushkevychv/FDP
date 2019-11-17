@@ -61,7 +61,7 @@
        
         }
       },
-      function () { return false; });
+      function install () { return true; });
     
     
     
