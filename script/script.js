@@ -105,7 +105,7 @@ function ChangeFunc() {
       .format(format) +
     "<br>" +
     "Extension not included";
-    //add 1h to duty time
+    //add 1h to duty time and fdp
     document.getElementById("addBtn").addEventListener("click", incrementBtn);
     function incrementBtn() {
       getResultTimeDiv.innerHTML =
@@ -119,6 +119,23 @@ function ChangeFunc() {
     "FDP: " +
     moment(obj[fdpValue][sectorValue], format)
       .add(moment(timeValue, format).hours(), "hours").add(1,"H")
+      .add(moment(timeValue, format).minutes(), "minutes")
+      .format(format)
+    }
+    //add 2h to duty time and fdp
+    document.getElementById("addBtnTwo").addEventListener("click", incrementBtnTwo);
+    function incrementBtnTwo() {
+      getResultTimeDiv.innerHTML =
+    "Duty time till: " +
+    moment(obj[fdpValue][sectorValue], format)
+      .add(moment(timeValue, format).hours(), "hours").add(2,"H")
+      .add(moment(timeValue, format).minutes(), "minutes")
+      .add(20, "m")
+      .format(format);
+      getResultTimeFdp.innerHTML =
+    "FDP: " +
+    moment(obj[fdpValue][sectorValue], format)
+      .add(moment(timeValue, format).hours(), "hours").add(2,"H")
       .add(moment(timeValue, format).minutes(), "minutes")
       .format(format)
     }
