@@ -83,6 +83,7 @@ function ChangeFunc() {
   let timeSelect = document.getElementById("time");
   let timeValue = timeSelect.options[timeSelect.selectedIndex].value;
   let getResultTimeDiv = document.getElementById("resultTime");
+  let getResultTimeFdp = document.getElementById("resultFdp");
 
   let sectorValue = sectorSelect.options[sectorSelect.selectedIndex].value;
   if (fdpValue in obj && sectorValue in obj[fdpValue])
@@ -90,10 +91,16 @@ function ChangeFunc() {
     getResultDiv.innerHTML = "Max FDP: " + obj[fdpValue][sectorValue];
   //console.log(String(getResultDiv))
   getResultTimeDiv.innerHTML =
-    "Check-out at: " +
+    "Duty time till: " +
     moment(obj[fdpValue][sectorValue], format)
       .add(moment(timeValue, format).hours(), "hours")
       .add(moment(timeValue, format).minutes(), "minutes").add(20,"m")
+      .format(format)
+      getResultTimeFdp.innerHTML =
+    "FDP: " +
+    moment(obj[fdpValue][sectorValue], format)
+      .add(moment(timeValue, format).hours(), "hours")
+      .add(moment(timeValue, format).minutes(), "minutes")
       .format(format) + "<br>" + "Extension not included";
     
       

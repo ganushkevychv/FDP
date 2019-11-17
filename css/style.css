@@ -14,7 +14,7 @@ body{
     justify-content: center;
     padding: 10px;
 }
-#result, #resultTime {
+#result, #resultTime, #resultFdp {
     color: red;
     font-size: 25pt;
     text-align: center;
