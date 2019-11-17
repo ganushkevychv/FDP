@@ -321,6 +321,9 @@ fetch("/script/time.json").then(function(response) {
   });
 });
 
-swal(
-  "to use this app offline pls go to browser settings and add to home screen"
-); // alert msg
+swal("to use this app offline pls press OK", {
+  buttons: ["NO", true],
+});
+// swal(
+//   "to use this app offline pls go to browser settings and add to home screen"
+// ); // alert msg

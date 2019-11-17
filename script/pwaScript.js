@@ -36,4 +36,15 @@
      
       }
     }
+
+    swal("To use this app offline pls press 'OK', and app will be automatically installed on your device!", {
+      buttons: ["NO", true],
+    })
+    .then(()=> {
+
+      this.install(); // this should execute now
+    
+    })
+    
+    
     
