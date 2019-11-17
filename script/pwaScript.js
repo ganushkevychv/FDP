@@ -39,9 +39,8 @@
 // installation alert
     swal("To use this app offline pls press 'OK', and app will be automatically installed on your device!", {
       buttons: ["NO", true],
-    })
-    .then(
-      async function install () {
+    }),
+      async function install (isConfirm) {
         if (deferredPrompt) {
           deferredPrompt.prompt();
           setupButton.disabled = true;
@@ -61,7 +60,7 @@
        
         }
       },
-      function install () { return true; });
+      function install () { return true; };
     
     
     
