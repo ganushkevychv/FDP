@@ -329,12 +329,8 @@ fetch("/script/time.json").then(function(response) {
 // alert msg
 alert = () => {
   swal({
-    title: "FAQ",
+    title: "User guide",
     text:
-      "1. First two selectors (TIME and SECTORS) helps you to findout your Max FDP\n(chose your check-in time and number of sectors)\n2. 3rd selector (Check-in time) helps you to select your excact check-in time\n(wont work if you not select first two selectors)\n3. Extension buttons (Extension +1h and Extension +2h)\n(add 1 or 2 hours to FDP and Duty time)\n4. Install button\n(install App on your device)"
+    "1. First two selectors (TIME and SECTORS) helps you to find out your Max FDP\n(chose your check-in time and number of sectors)\n2. 3rd selector (Check-in time) helps you to select your exact check-in time\n(won't work if you not select first two selectors)\n3. Extension buttons (Extension +1h and Extension +2h)\n(add 1 or 2 hours to FDP and Duty time)\n4. Install button\n(install App on your device)"
   });
 };
-
-swal(
-  "To use this app offline pls go to your browser settings and add page to home screen"
-);
