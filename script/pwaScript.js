@@ -16,7 +16,7 @@
         setupButton.disabled = false;
     });
     
-    /*async function install() {
+    async function install() {
       if (deferredPrompt) {
         deferredPrompt.prompt();
         setupButton.disabled = true;
@@ -35,31 +35,8 @@
     
      
       }
-    }*/
-// installation alert
-    swal("To use this app offline pls press 'OK', and app will be automatically installed on your device!", {
-      buttons: ["NO", true],
-    }),
-      async function install () {
-        if (deferredPrompt) {
-          deferredPrompt.prompt();
-          setupButton.disabled = true;
-          console.log(deferredPrompt)
-          deferredPrompt.userChoice.then(function(choiceResult){
-      
-            if (choiceResult.outcome === 'accepted') {
-            console.log('Your PWA has been installed');
-          } else {
-            console.log('User chose to not install your PWA');
-          }
-      
-          deferredPrompt = null;
-      
-          });
-      
-       
-        }
-      }
+    }
+
     
     
     

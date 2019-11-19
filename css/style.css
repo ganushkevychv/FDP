@@ -1,3 +1,5 @@
+
+
 body{
     background-image: url("/img/sky.jpg");
 }
@@ -9,7 +11,6 @@ body{
     flex-direction:row;
     justify-content: space-evenly;
     text-align-last: center;
-    
 }
 #result, #resultTime, p{
     
@@ -22,11 +23,7 @@ body{
     font-size: 25pt;
     text-align: center;
 }
-/*#install-btn {
-    display: none;
-}*/
 .timeSelector {
-    
     flex-direction: row;
     justify-content: center;
     text-align-last: center; 
@@ -34,5 +31,13 @@ body{
 #containerBtn {
     text-align:center;
     margin:auto;
- 
 }
+#alert{
+    position: absolute;
+    bottom: 90;
+    right: 0;
+    border-radius: 50%;
+   background-color: aqua;
+}
+
+
