@@ -89,7 +89,7 @@ function ChangeFunc() {
   if (fdpValue in obj && sectorValue in obj[fdpValue])
     // checks if json is present and contains necessary values
     getResultDiv.innerHTML =
-      "Max FDP: " + moment(obj[fdpValue][sectorValue], format).format(format);
+      "Allowable FDP: " + moment(obj[fdpValue][sectorValue], format).format(format);
 
   getResultTimeDiv.innerHTML =
     "Duty time till: " +
@@ -99,7 +99,7 @@ function ChangeFunc() {
       .add(20, "m")
       .format(format);
   getResultTimeFdp.innerHTML =
-    "FDP: " +
+    "FDP till: " +
     moment(obj[fdpValue][sectorValue], format)
       .add(moment(timeValue, format).hours(), "hours")
       .add(moment(timeValue, format).minutes(), "minutes")
@@ -118,7 +118,7 @@ function ChangeFunc() {
         .add(20, "m")
         .format(format);
     getResultTimeFdp.innerHTML =
-      "FDP: " +
+      "FDP till: " +
       moment(obj[fdpValue][sectorValue], format)
         .add(moment(timeValue, format).hours(), "hours")
         .add(1, "H")
@@ -139,7 +139,7 @@ function ChangeFunc() {
         .add(20, "m")
         .format(format);
     getResultTimeFdp.innerHTML =
-      "FDP: " +
+      "FDP till: " +
       moment(obj[fdpValue][sectorValue], format)
         .add(moment(timeValue, format).hours(), "hours")
         .add(2, "H")
